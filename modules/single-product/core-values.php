@@ -1,5 +1,5 @@
 <?php
-$values = get_field('core_values_list'); // Repeater: icon, text
+$values = get_field('values_single_product', 'option');
 ?>
 <section class="section-core-values">
     <div class="container">
@@ -13,7 +13,7 @@ $values = get_field('core_values_list'); // Repeater: icon, text
                             alt="<?= $val['icon']['alt'] ?>" />
                     </div>
                     <div class="content text-body-1 text-center mt-8">
-                        <p><?= $val['text'] ?></p>
+                        <p><?= $val['content'] ?></p>
                     </div>
                 </li>
                 <?php endforeach; ?>

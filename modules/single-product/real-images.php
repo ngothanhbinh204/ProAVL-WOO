@@ -1,4 +1,10 @@
 <?php
+global $product;
+
+// Ensure we have a valid product object
+if ( ! $product instanceof WC_Product ) {
+    $product = wc_get_product( get_the_ID() );
+}
 $title = get_field('real_images_title');
 $images = get_field('real_images_gallery');
 ?>
@@ -11,6 +17,7 @@ $images = get_field('real_images_gallery');
             <div class="block-swiper-real-image relative">
                 <div class="swiper-real-image swiper mt-base ">
                     <div class="swiper-wrapper">
+
                         <?php if ($images) : foreach ($images as $img) : ?>
                         <div class="swiper-slide">
                             <div class="img img-ratio ratio:pt-[675_1060] rounded-4">

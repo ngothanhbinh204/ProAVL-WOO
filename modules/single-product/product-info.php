@@ -1,8 +1,16 @@
 <?php
+global $product;
+
+// Ensure we have a valid product object
+if ( ! $product instanceof WC_Product ) {
+    $product = wc_get_product( get_the_ID() );
+}
+
 $images = get_field('product_images');
-$title_field = get_field('product_custom_title');
-$title = $title_field ? $title_field : get_the_title();
-$description = get_field('product_description');
+$title = get_the_title();
+$description = $product->get_description();
+// $avt = get_the_post_thumbnail(get_the_ID(), 'full');
+// var_dump($avt);
 $file_download = get_field('product_file_download');
 $contact_button_text = get_field('product_contact_btn_text');
 ?>
@@ -14,10 +22,15 @@ $contact_button_text = get_field('product_contact_btn_text');
                     <div class="w-full relative lg:flex-1">
                         <div class="swiper swiper-detail-prd-thumbs lg:absolute lg:top-0 lg:left-0 lg:w-full lg:h-full">
                             <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="img img-ratio border border-transparent rounded-2 overflow-hidden">
+                                        <?= get_image_post(get_the_ID(), 'image') ?>
+                                    </div>
+                                </div>
                                 <?php if ($images) : foreach ($images as $img) : ?>
                                 <div class="swiper-slide">
                                     <div class="img img-ratio border border-transparent rounded-2 overflow-hidden">
-                                        <img class="lozad" data-src="<?= $img['url'] ?>" alt="<?= $img['alt'] ?>" />
+                                        <?= get_image_attrachment($img, 'image') ?>
                                     </div>
                                 </div>
                                 <?php endforeach; endif; ?>
@@ -28,6 +41,11 @@ $contact_button_text = get_field('product_contact_btn_text');
                 <div class="banner-prd-main">
                     <div class="swiper swiper-detail-prd-main rounded-4 overflow-hidden border border-utility-gray-200">
                         <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="img img-ratio ratio:pt-[650_650]">
+                                    <?= get_image_post(get_the_ID(), 'image') ?>
+                                </div>
+                            </div>
                             <?php if ($images) : foreach ($images as $img) : ?>
                             <div class="swiper-slide">
                                 <div class="img img-ratio ratio:pt-[650_650]">

@@ -30,8 +30,6 @@ function canhcam_style()
 
 	wp_enqueue_style('frontend-style-global', THEME_URI . '/styles/core.min.css', array(), GENERATE_VERSION);
 	wp_enqueue_style('frontend-style-main', THEME_URI . '/styles/main.min.css', array(), GENERATE_VERSION);
-	wp_enqueue_style('frontend-style-global-cus', THEME_URI . '/styles/core-cus.min.css', array(), GENERATE_VERSION);
-	wp_enqueue_style('frontend-style-main-cus', THEME_URI . '/styles/main-cus.min.css', array(), GENERATE_VERSION);
 
 	/**
 	 * Script
@@ -42,8 +40,6 @@ function canhcam_style()
 			if (stripos($_SERVER['HTTP_USER_AGENT'], 'Chrome-Lighthouse') === false) {
 				wp_enqueue_script('front-end-global', THEME_URI . '/scripts/core.min.js', array('jquery'), GENERATE_VERSION, true);
 				wp_enqueue_script('front-end-main', THEME_URI . '/scripts/main.min.js', '', GENERATE_VERSION, true);
-				wp_enqueue_script('front-end-global-cus', THEME_URI . '/scripts/core-cus.min.js', array('jquery'), GENERATE_VERSION, true);
-				wp_enqueue_script('front-end-main-cus', THEME_URI . '/scripts/main-cus.min.js', '', GENERATE_VERSION, true);
 			}
 		}
 	}

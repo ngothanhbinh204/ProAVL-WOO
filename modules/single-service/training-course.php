@@ -6,7 +6,7 @@ $button_text = get_field('training_btn_text');
 $button_link = get_field('training_btn_link');
 ?>
 <section class="section-bg gradient-3">
-    <?php if(function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
+    <?php get_template_part('modules/common/breadcrumb')?>
     <section class="section-training-course section-py !pb-0 ">
         <div class="container h-full">
             <div class="training-course h-full">
@@ -16,38 +16,38 @@ $button_link = get_field('training_btn_link');
                         <?= $description ?>
                     </div>
                     <?php if ($button_text && $button_link) : ?>
-                        <a class="btn btn-white" href="<?= $button_link ?>"><?= $button_text ?></a>
+                    <a class="btn btn-white" href="<?= $button_link ?>"><?= $button_text ?></a>
                     <?php endif; ?>
                 </div>
                 <?php if ($images) : ?>
-                    <div class="block-slide grid grid-cols-2 gap-x-5 ">
-                        <div class="embla-slide-1 w-full">
-                            <div class="embla__viewport"> 
-                                <div class="embla__container"> 
-                                    <?php foreach ($images as $img) : ?>
-                                        <div class="embla__slide"> 
-                                            <div class="img img-ratio ratio:pt-[477_360]">
-                                                <img class="lozad" data-src="<?= $img['url'] ?>" alt="<?= $img['alt'] ?>"/>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
+                <div class="block-slide grid grid-cols-2 gap-x-5 ">
+                    <div class="embla-slide-1 w-full">
+                        <div class="embla__viewport">
+                            <div class="embla__container">
+                                <?php foreach ($images as $img) : ?>
+                                <div class="embla__slide">
+                                    <div class="img img-ratio ratio:pt-[477_360]">
+                                        <img class="lozad" data-src="<?= $img['url'] ?>" alt="<?= $img['alt'] ?>" />
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                         <div class="embla-slide-2 w-full">
-                            <div class="embla__viewport"> 
-                                <div class="embla__container"> 
-                                    <?php foreach ($images as $img) : ?>
-                                        <div class="embla__slide"> 
-                                            <div class="img img-ratio ratio:pt-[477_360]">
-                                                <img class="lozad" data-src="<?= $img['url'] ?>" alt="<?= $img['alt'] ?>"/>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
+                    <div class="embla-slide-2 w-full">
+                        <div class="embla__viewport">
+                            <div class="embla__container">
+                                <?php foreach ($images as $img) : ?>
+                                <div class="embla__slide">
+                                    <div class="img img-ratio ratio:pt-[477_360]">
+                                        <img class="lozad" data-src="<?= $img['url'] ?>" alt="<?= $img['alt'] ?>" />
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <?php endif; ?>
             </div>
         </div>

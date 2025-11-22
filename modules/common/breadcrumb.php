@@ -1,3 +1,4 @@
+<div class="space-header pt-[var(--header-height)]"></div>
 <section class="global-breadcrumb">
     <div class="container">
         <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>

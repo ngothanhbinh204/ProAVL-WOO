@@ -22,6 +22,15 @@ if ( post_password_required() ) {
 	echo get_the_password_form(); // WPCS: XSS ok.
 	return;
 }
+
+global $product;
+if ( ! $product instanceof WC_Product ) {
+    // Nếu chưa có, lấy đối tượng sản phẩm hiện tại
+    $product = wc_get_product( get_the_ID() );
+}
+if ( ! $product ) {
+    return; // Dừng nếu không thể lấy sản phẩm
+}
 ?>
 
 <?php get_template_part('modules/single-product/product-info'); ?>
