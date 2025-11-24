@@ -1,0 +1,418 @@
+[
+    {
+        "key": "group_page_contact_settings",
+        "title": "Page Contact",
+        "fields": [
+            {
+                "key": "field_tab_general_info",
+                "label": "Thông tin chung",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_contact_heading",
+                "label": "Tiêu đề trang (Heading)",
+                "name": "contact_heading",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Ví dụ: Liên hệ, Hệ thống phân phối...",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_contact_business_info",
+                "label": "Danh sách Chi nhánh / Văn phòng",
+                "name": "contact_business_info",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "pagination": 0,
+                "min": 0,
+                "max": 0,
+                "collapsed": "field_biz_title",
+                "button_label": "Thêm Chi nhánh",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_biz_title",
+                        "label": "Tên Chi nhánh",
+                        "name": "title",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_contact_business_info"
+                    },
+                    {
+                        "key": "field_biz_address",
+                        "label": "Địa chỉ",
+                        "name": "address",
+                        "aria-label": "",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "rows": 3,
+                        "placeholder": "",
+                        "new_lines": "br",
+                        "parent_repeater": "field_contact_business_info"
+                    },
+                    {
+                        "key": "field_biz_phone_1",
+                        "label": "Số điện thoại 1",
+                        "name": "phone_1",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_contact_business_info"
+                    },
+                    {
+                        "key": "field_biz_phone_2",
+                        "label": "Số điện thoại 2",
+                        "name": "phone_2",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_contact_business_info"
+                    },
+                    {
+                        "key": "field_biz_map_link",
+                        "label": "Link Google Map",
+                        "name": "map_link",
+                        "aria-label": "",
+                        "type": "link",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "parent_repeater": "field_contact_business_info"
+                    }
+                ]
+            },
+            {
+                "key": "field_tab_contact_form",
+                "label": "Form Liên hệ",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_contact_form_title",
+                "label": "Tiêu đề Form",
+                "name": "contact_form_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Ví dụ: GỬI TIN NHẮN CHO CHÚNG TÔI",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_contact_form_subtitle",
+                "label": "Mô tả phụ Form",
+                "name": "contact_form_subtitle",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "rows": 2,
+                "placeholder": "",
+                "new_lines": "br"
+            },
+            {
+                "key": "field_contact_form_shortcode",
+                "label": "Shortcode Contact Form 7",
+                "name": "contact_form_shortcode",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Dán shortcode vào đây. Ví dụ: [contact-form-7 id=\"123\" title=\"Contact form 1\"]",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_tab_social",
+                "label": "Mạng xã hội",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_contact_social_heading",
+                "label": "Tiêu đề Section Social",
+                "name": "contact_social_heading",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Ví dụ: Kết nối với chúng tôi",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_contact_social_items",
+                "label": "Danh sách Mạng xã hội",
+                "name": "contact_social_items",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "pagination": 0,
+                "min": 0,
+                "max": 0,
+                "collapsed": "",
+                "button_label": "Thêm Mạng xã hội",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_social_icon",
+                        "label": "Icon",
+                        "name": "icon",
+                        "aria-label": "",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "15",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "id",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "preview_size": "thumbnail",
+                        "parent_repeater": "field_contact_social_items"
+                    },
+                    {
+                        "key": "field_social_name",
+                        "label": "Tên mạng xã hội",
+                        "name": "name",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "VD: Facebook, Zalo...",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_contact_social_items"
+                    },
+                    {
+                        "key": "field_social_link",
+                        "label": "Đường dẫn (Link)",
+                        "name": "link",
+                        "aria-label": "",
+                        "type": "link",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "30",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "parent_repeater": "field_contact_social_items"
+                    },
+                    {
+                        "key": "field_social_qr",
+                        "label": "Mã QR (Ảnh)",
+                        "name": "qr_code",
+                        "aria-label": "",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "30",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "id",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "preview_size": "thumbnail",
+                        "parent_repeater": "field_contact_social_items"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-templates/template-contact.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content"
+        ],
+        "active": true,
+        "description": "Các trường cấu hình cho trang Liên hệ",
+        "show_in_rest": 0
+    }
+]

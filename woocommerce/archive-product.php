@@ -1,52 +1,17 @@
 <?php
-
 /**
- * The Template for displaying product archives, including the main shop page which is a post type archive
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/archive-product.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see https://woocommerce.com/document/template-structure/
- * @package WooCommerce\Templates
- * @version 8.6.0
+ * The Template for displaying product archives...
  */
 
 defined('ABSPATH') || exit;
 
-// // Define all variables at the top
-// $term = get_queried_object();
-// $title_category = get_field('category_title', 'product_cat_' . $term->term_id);
-// $page_title = $title_category ? $title_category : $term->name;
-
-// // Shortcode variables
-// $product_filter_sort_shortcode = '[facetwp facet="product_filter_sort"]';
-// $pagination_product_shortcode = '[facetwp facet="pagination_product"]';
-
-// // Text strings
-// $filter_by_text = __('Lọc theo', 'canhcamtheme');
-// $filter_text = __('Bộ lọc', 'canhcamtheme');
-// $product_filter_title_text = __('Bộ lọc sản phẩm', 'canhcamtheme');
-
-// // Template directory path
-// $template_directory = get_template_directory_uri();
-
 get_header('shop');
-/**
- * Hook: woocommerce_before_main_content.
- *
- * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
- * @hooked WC_Structured_Data::generate_website_data() - 30
- */
 do_action('woocommerce_before_main_content');
 ?>
+
 <?php get_template_part('modules/common/banner') ?>
 <?php get_template_part('modules/common/breadcrumb') ?>
+
 <?php
 $current_object = get_queried_object();
 $title = '';
@@ -56,30 +21,38 @@ $is_leaf = false;
 
 if ( is_product_category() ) {
     $current_term = $current_object;
-    $title = $current_term->name;
-    $description = $current_term->description;
-    $parent_id = $current_term->term_id;
-    
-    // Check for ACF overrides
+    $title        = $current_term->name;
+    $description  = $current_term->description; 
+    $parent_id    = $current_term->term_id;
     $acf_title = get_field('title', $current_term);
     if ($acf_title) $title = $acf_title;
+    
     $acf_desc = get_field('subtitle', $current_term);
     if ($acf_desc) $description = $acf_desc;
 
 } elseif ( is_shop() ) {
-    $title = woocommerce_page_title(false);
-    $parent_id = 0; // Root categories
+    $title        = woocommerce_page_title(false);
+    $parent_id    = 0; 
     $shop_page_id = wc_get_page_id( 'shop' );
     $acf_title = get_field('title', $shop_page_id);
-    if ($acf_title) $title = $acf_title;
+    if ($acf_title) {
+        $title = $acf_title;
+    }
     $acf_desc = get_field('subtitle', $shop_page_id);
-    if ($acf_desc) $description = $acf_desc;
+    
+    if ($acf_desc) {
+        $description = $acf_desc;
+    } else {
+        $shop_page   = get_post($shop_page_id);
+        if ($shop_page) {
+            $description = apply_filters('the_content', $shop_page->post_content);
+        }
+    }
 }
 
-// Get direct children
 $child_terms = get_terms([
-    'taxonomy' => 'product_cat',
-    'parent' => $parent_id,
+    'taxonomy'   => 'product_cat',
+    'parent'     => $parent_id,
     'hide_empty' => true
 ]);
 
@@ -87,13 +60,15 @@ if ( empty($child_terms) ) {
     $is_leaf = true;
 }
 ?>
-<section class="section-product section-py lg:pt-15 lg:pb-30">
+
+<section class="section-product section-py lg:pt-15 lg:pb-30 ">
     <div class="container">
         <div class="product">
             <div class="product-header text-center">
                 <?php if ($title) : ?>
                 <h2 class="header-title heading-1"><?= $title ?></h2>
                 <?php endif; ?>
+
                 <?php if ($description) : ?>
                 <div class="subtitle text-body-1 mt-5"><?= $description ?></div>
                 <?php endif; ?>

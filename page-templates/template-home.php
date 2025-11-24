@@ -2,6 +2,7 @@
 Template name: Page - Home
 */ ?>
 <?= get_header() ?>
+
 <?php
 if (have_rows('home_sections')) :
 	while (have_rows('home_sections')) : the_row();

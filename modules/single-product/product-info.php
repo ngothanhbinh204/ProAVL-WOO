@@ -1,7 +1,5 @@
 <?php
 global $product;
-
-// Ensure we have a valid product object
 if ( ! $product instanceof WC_Product ) {
     $product = wc_get_product( get_the_ID() );
 }
@@ -9,11 +7,18 @@ if ( ! $product instanceof WC_Product ) {
 $images = get_field('product_images');
 $title = get_the_title();
 $description = $product->get_description();
-// $avt = get_the_post_thumbnail(get_the_ID(), 'full');
-// var_dump($avt);
+
 $file_download = get_field('product_file_download');
 $contact_button_text = get_field('product_contact_btn_text');
+
+$brands = get_the_terms( get_the_ID(), 'product_brand'); 
+$term_id = 0;
+if( $brands && ! is_wp_error( $brands ) ) {
+$term_id = $brands[0]->term_id;
+}
+$thumbnail_id = get_term_meta( $term_id, 'thumbnail_id', true ); 
 ?>
+
 <section class="section-detail-prd section-py lg:rem:pt-[150px] !pb-0">
     <div class="container">
         <div class="detail-product">
@@ -54,6 +59,9 @@ $contact_button_text = get_field('product_contact_btn_text');
                             </div>
                             <?php endforeach; endif; ?>
                         </div>
+                    </div>
+                    <div class="logo-brands">
+                        <?= get_image_attrachment( $thumbnail_id, 'image' ); ?>
                     </div>
                 </div>
             </div>

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
-
+<div class="space-header pt-[var(--header-height)]"></div>
 <?php get_template_part('modules/common/breadcrumb')?>
 
 <?php

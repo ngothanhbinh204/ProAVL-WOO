@@ -30,6 +30,7 @@ function canhcam_style()
 
 	wp_enqueue_style('frontend-style-global', THEME_URI . '/styles/core.min.css', array(), GENERATE_VERSION);
 	wp_enqueue_style('frontend-style-main', THEME_URI . '/styles/main.min.css', array(), GENERATE_VERSION);
+	wp_enqueue_style('frontend-style-custom', THEME_URI . '/styles/custom-style.css', array(), GENERATE_VERSION);
 
 	/**
 	 * Script

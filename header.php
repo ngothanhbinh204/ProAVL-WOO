@@ -17,4 +17,3 @@
 <body <?php body_class(get_field('add_class_body', get_the_ID())) ?>>
     <?php get_template_part('modules/common/header'); ?>
     <main class="relative">
-        <main>

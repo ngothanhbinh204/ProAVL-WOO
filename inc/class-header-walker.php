@@ -77,3 +77,47 @@ function canhcam_header_menu($theme_location) {
     }
     echo '</ul>';
 }
+
+function canhcam_mobile_menu($theme_location) {
+    $locations = get_nav_menu_locations();
+    if (!isset($locations[$theme_location])) return;
+    
+    $menu_id = $locations[$theme_location];
+    $menu_items = wp_get_nav_menu_items($menu_id);
+    
+    if (!$menu_items) return;
+    
+    // Build tree
+    $menu_tree = array();
+    $menu_items_by_id = array();
+    
+    foreach ($menu_items as $item) {
+        $item->children = array();
+        $menu_items_by_id[$item->ID] = $item;
+    }
+    
+    foreach ($menu_items as $item) {
+        if ($item->menu_item_parent && isset($menu_items_by_id[$item->menu_item_parent])) {
+            $menu_items_by_id[$item->menu_item_parent]->children[] = $item;
+        } else {
+            $menu_tree[] = $item;
+        }
+    }
+    
+    echo '<ul class="menu-list wrap-item-toggle">';
+    foreach ($menu_tree as $item) {
+        $has_children = !empty($item->children);
+        echo '<li class="item-toggle">';
+        echo '<div class="title"> <a href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a></div>';
+        
+        if ($has_children) {
+            echo '<ul>';
+            foreach ($item->children as $child) {
+                echo '<li> <a href="' . esc_url($child->url) . '">' . esc_html($child->title) . '</a></li>';
+            }
+            echo '</ul>';
+        }
+        echo '</li>';
+    }
+    echo '</ul>';
+}

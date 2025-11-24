@@ -141,27 +141,95 @@ function add_theme_config_options()
 				'library' => 'all',
 			),
 			array(
-				'key' => 'field_footer_columns',
-				'label' => 'Footer Columns',
-				'name' => 'footer_columns',
+				'key' => 'field_footer_blocks',
+				'label' => 'Footer Content Blocks',
+				'name' => 'footer_blocks',
 				'type' => 'repeater',
 				'layout' => 'block',
-				'button_label' => 'Add Column',
+				'button_label' => 'Add Block',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_footer_col_title',
+						'key' => 'field_block_type',
+						'label' => 'Block Type',
+						'name' => 'type',
+						'type' => 'select',
+						'choices' => array(
+							'list' => 'Standard List',
+							'actions' => 'Contact Actions (Phone/Email)',
+						),
+						'default_value' => 'list',
+					),
+					array(
+						'key' => 'field_block_title',
 						'label' => 'Title',
 						'name' => 'title',
 						'type' => 'text',
+						'conditional_logic' => array(
+							array(
+								array(
+									'field' => 'field_block_type',
+									'operator' => '==',
+									'value' => 'list',
+								),
+							),
+						),
 					),
 					array(
-						'key' => 'field_footer_col_content',
-						'label' => 'Content',
-						'name' => 'content',
-						'type' => 'wysiwyg',
-						'tabs' => 'all',
-						'toolbar' => 'full',
-						'media_upload' => 1,
+						'key' => 'field_block_items',
+						'label' => 'Items',
+						'name' => 'items',
+						'type' => 'repeater',
+						'conditional_logic' => array(
+							array(
+								array(
+									'field' => 'field_block_type',
+									'operator' => '==',
+									'value' => 'list',
+								),
+							),
+						),
+						'sub_fields' => array(
+							array(
+								'key' => 'field_item_content',
+								'label' => 'Content',
+								'name' => 'content',
+								'type' => 'wysiwyg',
+								'tabs' => 'visual',
+								'toolbar' => 'basic',
+								'media_upload' => 0,
+								'delay' => 1,
+							),
+						),
+					),
+					array(
+						'key' => 'field_action_phone',
+						'label' => 'Phone',
+						'name' => 'phone',
+						'type' => 'text',
+						'conditional_logic' => array(
+							array(
+								array(
+									'field' => 'field_block_type',
+									'operator' => '==',
+									'value' => 'actions',
+								),
+							),
+						),
+					),
+					array(
+						'key' => 'field_action_email',
+						'label' => 'Email',
+						'name' => 'email',
+						'type' => 'text',
+						'conditional_logic' => array(
+							array(
+								array(
+									'field' => 'field_block_type',
+									'operator' => '==',
+									'value' => 'actions',
+								),
+							),
+						),
 					),
 				),
 			),

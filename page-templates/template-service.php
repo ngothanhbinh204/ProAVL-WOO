@@ -1,15 +1,20 @@
 <?php /* Template name: Page - Service */ ?>
 <?= get_header() ?>
 <div class="section-bg gradient-1">
-
-
     <?php get_template_part('modules/common/banner') ?>
     <?php get_template_part('modules/common/breadcrumb'); ?>
     <?php
 $title = get_field('title_service');
 $description = get_field('description_service');
 $service_items = get_field('items'); 
-?>
+if (get_field('button_view_all')) {
+    $button_view_all = get_field('button_view_all');
+} else {
+    $button_view_all = [
+        'title' => 'Xem tất cả dịch vụ',
+        'url'   => '#'
+    ];
+}?>
     <section class="section-service section-py lg:pt-15">
         <div class="container">
             <div class="service flex flex-col gap-base items-center">
@@ -71,7 +76,9 @@ $service_items = get_field('items');
                 </ul>
                 <?php endif; ?>
 
-                <a class="btn btn-primary" href="#!">Xem tất cả dự án</a>
+                <a class="btn btn-primary"
+                    href="<?= esc_url($button_view_all['url']) ?>"><?= esc_html($button_view_all['title']) ?></a>
+
             </div>
         </div>
     </section>

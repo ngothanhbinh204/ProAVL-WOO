@@ -1,121 +1,128 @@
 <?php get_header() ?>
-<?php get_template_part('modules/common/breadcrumb') ?>
-<section class="new-detail py-20 font-font-title max-lg:py-10">
-	<div class="container">
-		<div class="grid xl:grid-cols-12 gap-10">
-			<div class="xl:col-span-9 relative">
-				<div class="tool-share xl:absolute xl:right-full top-0 pb-2 xl:pt-5 xl:mr-5 xl:h-full">
-					<div class="sticky top-[calc(var(--header-scroll)+15px)]">
-						<div class="tool-share-item">
-							<a class="tool-share-link flex-center rounded-full w-12 h-12 border border-Neutral-100 text-Primary-Red hover:bg-Primary-Red hover:text-white transition-all duration-300" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook"> <i class="fa-brands fa-facebook-f"></i></a>
-						</div>
-						<div class="tool-share-item mt-2">
-							<a class="tool-share-link flex-center rounded-full w-12 h-12 border border-Neutral-100 text-Primary-Red hover:bg-Primary-Red hover:text-white transition-all duration-300" href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>" target="_blank" rel="noopener noreferrer" aria-label="Twitter"> <i class="fa-brands fa-twitter"></i></a>
-						</div>
-						<div class="tool-share-item mt-2">
-							<a class="tool-share-link flex-center rounded-full w-12 h-12 border border-Neutral-100 text-Primary-Red hover:bg-Primary-Red hover:text-white transition-all duration-300" href="http://plus.google.com/share?url=<?php echo urlencode(get_permalink()); ?>" target="_blank" rel="noopener noreferrer" aria-label="Google"> <i class="fa-brands fa-google"></i></a>
-						</div>
-						<div class="tool-share-item mt-2">
-							<a class="tool-share-link flex-center rounded-full w-12 h-12 border border-Neutral-100 text-Primary-Red hover:bg-Primary-Red hover:text-white transition-all duration-300" href="http://linkedin.com/shareArticle?mini=true&amp;url=<?php echo urlencode(get_permalink()); ?>" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"> <i class="fa-brands fa-linkedin-in"></i></a>
-						</div>
-					</div>
-				</div>
-				<h1 class="text-5xl font-bold text-[#090909] mb-5 max-md:text-2xl max-lg:text-3xl leading-tight"><?php the_title() ?></h1>
-				<div class="new-detail-heading flex items-center gap-5 justify-between mb-5 max-md:gap-5">
-					<span class="text-Primary-Red-2 rem:text-[14px]"><?php echo get_the_category()[0]->name ?></span>
-					<span class="text-[#818285] rem:text-[14px]"><?php echo get_the_date('d - m - Y') ?></span>
-					<div class="flex-1 h-[1px] bg-[#2D54C5]"></div>
-				</div>
-				<div class="new-detail-content format-content">
-					<?php
-					if (canhcam_embed()):
-					?>
-						<?php the_content() ?>
-					<?php else: ?>
-						<?php
-						get_content_3ds(get_the_ID());
-						?>
-					<?php endif; ?>
-				</div>
-				<div class="news-share flex items-center justify-end gap-3">
-					<p>
-						<strong><?= _e('Bình chọn:', 'canhcamtheme') ?> </strong>
-					</p>
-					<?php echo kk_star_ratings(); ?>
-				</div>
-				<div class="custom-about-us py-5">
-					<?= get_field('post_about_us', 'options') ?>
-				</div>
-				<div class="flex items-center justify-between">
-					<?php
-					$prev_post = get_previous_post();
-					$next_post = get_next_post();
-					?>
-					<?php if ($prev_post): ?>
-						<a href="<?php echo get_permalink($prev_post->ID); ?>" class="flex items-end gap-2 text-Primary-Red-2 hover:text-Primary-Red-2/80 transition-300">
-							<div class="flex">
-								<i class="fa-light fa-arrow-left"></i>
-							</div>
-							<span class="font-medium"><?= _e('Bài trước', 'canhcamtheme') ?></span>
-						</a>
-					<?php endif; ?>
-					<?php if ($next_post): ?>
-						<a href="<?php echo get_permalink($next_post->ID); ?>" class="flex items-end gap-2 text-Primary-Red-2 hover:text-Primary-Red-2/80 transition-300">
-							<span class="font-medium"><?= _e('Bài sau', 'canhcamtheme') ?></span>
-							<div class="flex">
-								<i class="fa-light fa-arrow-right"></i>
-							</div>
-						</a>
-					<?php endif; ?>
-				</div>
-			</div>
-			<div class="xl:col-span-3">
-				<div class="title mb-5 rem:text-[24px] text-Primary-Red-2 font-bold"><?= _e('Tin tức khác', 'canhcamtheme') ?></div>
-				<div class="new-detail-list flex flex-col gap-3">
-					<?php
-					$args = array(
-						'posts_per_page' => 5,
-						'post_type'      => 'post',
-						'order' => 'DESC',
-						'orderby' => 'date',
-						'post__not_in' => array(get_the_ID())
-					);
-					$the_query = new WP_Query($args);
-					?>
-					<?php if ($the_query->have_posts()) : ?>
-						<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-							<div class="new-detail-item flex xl:items-center gap-5">
-								<div class="new-detail-images w-[40%]">
-									<div class="new-detail-image">
-										<a class="img-ratio ratio:pt-[68_100]" href="<?php the_permalink() ?>">
-											<?= get_image_post(get_the_ID()) ?>
-										</a>
-									</div>
-								</div>
-								<div class="new-detail-content w-[60%] py-1 border-t border-t-Primary-100">
-									<span class="text-sm text-Neutral-600 font-medium mb-1"><?php echo get_the_date('d-m-Y') ?></span>
-									<h3 class="text-lg text-Neutral-600 font-bold line-clamp-2 hover:text-Primary-Red-2">
-										<a href="<?php the_permalink() ?>"><?php the_title() ?></a>
-									</h3>
-								</div>
-							</div>
-						<?php endwhile; ?>
-					<?php endif; ?>
-					<?php wp_reset_postdata(); ?>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<?php get_footer() ?>
-<style>
-	@media (min-width: 1200px) {
-		.ftwp-fixed-to-post #ftwp-contents {
-			left: 20px !important;
-		}
-	}
+<?php
+$title = get_the_title();
+$date = get_the_date('d.m.Y');
+$intro = get_the_excerpt();
+$content = get_the_content();
+$related_news = get_field('related_news');
+?>
 
-	.format-content table td {
-		padding: 10px;
-	}
-</style>
+<section class="section-bg bg-utility-gray-50">
+    <!-- <div class="space-header pt-[var(--header-height)]"></div> -->
+    <?php get_template_part('modules/common/breadcrumb') ?>
+
+    <!-- header-content -->
+    <section class="section-news-detail-header section-py lg:pb-10">
+        <div class="news-detail-header">
+            <div class="block-content flex flex-col">
+                <h1 class="title-news heading-4 text-primary-3"><?= $title ?></h1>
+                <div class="date-social flex-y-center gap-x-5 mt-6">
+                    <div class="date flex-y-center gap-x-3 text-utility-gray-500">
+                        <i class="fa-regular fa-clock text-2xl "></i>
+                        <div class="data-content text-body-3"><?= $date ?></div>
+                    </div>
+                    <ul class="social-list">
+                        <li class="social-item item-face"><a href="#!">
+                                <i class="fa-brands fa-facebook"></i> </a></li>
+                    </ul>
+                </div>
+                <div
+                    class="main-content xl:flex-[1_1_0] xl:overflow-y-auto xl:overflow-scroll-1 flex flex-col gap-y-5 text-body-1 mt-10">
+                    <?= $intro ?>
+                </div>
+            </div>
+            <div class="block-img">
+                <div class="img img-ratio ratio:pt-[540_960]  rounded-l-4">
+                    <?= get_image_post(get_the_ID(), 'image') ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- content  -->
+    <section class="section-news-detail-main-content">
+        <div class="container">
+            <div class="news-detail-main-content py-10 lg:py-15 px-8 lg:px-12 rounded-4 bg-white">
+                <div class="format-content">
+                    <?= apply_filters('the_content', $content) ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- related posts -->
+    <!-- Bắt đầu phần Tin tức khác -->
+    <section class="section-other-news section-py lg:rem:pt-[105px]">
+        <div class="container">
+            <div class="other-news">
+                <h2 class="other-news-title heading-1 text-center">Tin tức khác</h2>
+
+                <?php 
+            // 1. Cấu hình lấy bài viết NGẪU NHIÊN
+            $related_args = [
+                'post_type'      => 'post',
+                'posts_per_page' => 6,               // Số lượng bài
+                'post__not_in'   => [get_the_ID()],  // Trừ bài viết hiện tại ra
+                'orderby'        => 'rand',          // <--- QUAN TRỌNG: Random
+                'post_status'    => 'publish',
+            ];
+
+            // 2. Lấy danh sách bài viết (Trả về mảng Object)
+            $related_news = get_posts($related_args);
+            
+            if ($related_news) :
+            ?>
+                <div class="swiper-column-auto auto-3-column py-4 mt-base">
+                    <div class="swiper">
+                        <!-- 3. Vòng lặp foreach như bạn yêu cầu -->
+                        <ul class="swiper-wrapper other-news-list">
+                            <?php foreach ($related_news as $p) : ?>
+                            <li class="swiper-slide other-news-item">
+                                <div class="news-item zoom-img-parent h-full">
+                                    <div class="block-thumb">
+                                        <div class="thumb img-zoom">
+                                            <!-- Link ảnh -->
+
+                                            <?php 
+													echo get_image_post($p->ID, 'image');
+                                            ?>
+
+                                        </div>
+                                    </div>
+                                    <div class="news-info mt-3">
+                                        <h3 class="info-name text-lg font-bold line-clamp-2">
+                                            <a href="<?= get_permalink($p->ID) ?>"
+                                                class="hover:text-primary transition-colors">
+                                                <?= get_the_title($p->ID) ?>
+                                            </a>
+                                        </h3>
+                                        <a class="btn btn-white btn-seemore mt-2 inline-block text-sm font-medium text-primary hover:underline"
+                                            href="<?= get_permalink($p->ID) ?>">Xem chi tiết</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+
+                    <!-- Nút điều hướng Slider -->
+                    <div class="wrap-button-slide static-mobile mt-5 flex justify-center gap-3">
+                        <button
+                            class="btn btn-slide-circ btn-prev w-10 h-10 rounded-full border border-gray-200 flex-center hover:bg-primary hover:text-white transition-all">
+                            <i class="fa-light fa-angle-left"></i>
+                        </button>
+                        <button
+                            class="btn btn-slide-circ btn-next w-10 h-10 rounded-full border border-gray-200 flex-center hover:bg-primary hover:text-white transition-all">
+                            <i class="fa-light fa-angle-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <?php endif; 
+            // Reset không cần thiết với get_posts, nhưng tốt nhất vẫn nên clear nếu có query phức tạp trước đó
+            ?>
+            </div>
+        </div>
+    </section>
+</section>
+
+<?php get_footer() ?>
