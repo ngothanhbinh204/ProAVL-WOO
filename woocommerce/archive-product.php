@@ -18,12 +18,26 @@ $title = '';
 $description = '';
 $parent_id = 0;
 $is_leaf = false;
+$taxonomy = 'product_cat'; 
 
 if ( is_product_category() ) {
     $current_term = $current_object;
     $title        = $current_term->name;
     $description  = $current_term->description; 
     $parent_id    = $current_term->term_id;
+    $acf_title = get_field('title', $current_term);
+    if ($acf_title) $title = $acf_title;
+    
+    $acf_desc = get_field('subtitle', $current_term);
+    if ($acf_desc) $description = $acf_desc;
+
+} elseif ( is_tax('product_brand') ) {
+    $taxonomy     = 'product_brand';
+    $current_term = $current_object;
+    $title        = $current_term->name;
+    $description  = $current_term->description; 
+    $parent_id    = $current_term->term_id;
+    
     $acf_title = get_field('title', $current_term);
     if ($acf_title) $title = $acf_title;
     
@@ -51,7 +65,7 @@ if ( is_product_category() ) {
 }
 
 $child_terms = get_terms([
-    'taxonomy'   => 'product_cat',
+    'taxonomy'   => $taxonomy,
     'parent'     => $parent_id,
     'hide_empty' => true
 ]);
@@ -78,7 +92,7 @@ if ( empty($child_terms) ) {
             <ul class="block-product-list flex flex-col gap-base lg:gap-20 mt-base">
                 <?php foreach ($child_terms as $child) : 
                         $grandchildren = get_terms([
-                            'taxonomy' => 'product_cat',
+                            'taxonomy' => $taxonomy,
                             'parent' => $child->term_id,
                             'hide_empty' => true
                         ]);
@@ -121,7 +135,7 @@ if ( empty($child_terms) ) {
                                 'posts_per_page' => -1,
                                 'tax_query' => [
                                     [
-                                        'taxonomy' => 'product_cat',
+                                        'taxonomy' => $taxonomy,
                                         'field' => 'term_id',
                                         'terms' => $child->term_id,
                                     ]

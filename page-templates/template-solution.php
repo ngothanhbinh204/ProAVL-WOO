@@ -29,10 +29,7 @@ get_header();
             <div class="solution flex flex-col gap-base items-center">
                 <div class="solution-header text-center">
                     <?php if ($s_title) : ?>
-                    <h2 class="solution-title heading-1"><?= esc_html($s_title) ?></h2>
-                    <?php else: ?>
-                    <!-- Fallback: Nếu không nhập field thì lấy tên trang -->
-                    <h2 class="solution-title heading-1"><?= get_the_title() ?></h2>
+                    <h1 class="solution-title heading-1"><?= esc_html($s_title) ?></h1>
                     <?php endif; ?>
 
                     <?php if ($s_description) : ?>

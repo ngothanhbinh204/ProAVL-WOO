@@ -51,38 +51,33 @@ $related_news = get_field('related_news');
     </section>
 
     <!-- related posts -->
-    <!-- Bắt đầu phần Tin tức khác -->
+
     <section class="section-other-news section-py lg:rem:pt-[105px]">
         <div class="container">
             <div class="other-news">
                 <h2 class="other-news-title heading-1 text-center">Tin tức khác</h2>
 
                 <?php 
-            // 1. Cấu hình lấy bài viết NGẪU NHIÊN
             $related_args = [
                 'post_type'      => 'post',
-                'posts_per_page' => 6,               // Số lượng bài
-                'post__not_in'   => [get_the_ID()],  // Trừ bài viết hiện tại ra
-                'orderby'        => 'rand',          // <--- QUAN TRỌNG: Random
+                'posts_per_page' => 6,               
+                'post__not_in'   => [get_the_ID()], 
+                'orderby'        => 'rand',        
                 'post_status'    => 'publish',
             ];
 
-            // 2. Lấy danh sách bài viết (Trả về mảng Object)
             $related_news = get_posts($related_args);
             
             if ($related_news) :
             ?>
                 <div class="swiper-column-auto auto-3-column py-4 mt-base">
                     <div class="swiper">
-                        <!-- 3. Vòng lặp foreach như bạn yêu cầu -->
                         <ul class="swiper-wrapper other-news-list">
                             <?php foreach ($related_news as $p) : ?>
                             <li class="swiper-slide other-news-item">
                                 <div class="news-item zoom-img-parent h-full">
                                     <div class="block-thumb">
                                         <div class="thumb img-zoom">
-                                            <!-- Link ảnh -->
-
                                             <?php 
 													echo get_image_post($p->ID, 'image');
                                             ?>
@@ -105,7 +100,6 @@ $related_news = get_field('related_news');
                         </ul>
                     </div>
 
-                    <!-- Nút điều hướng Slider -->
                     <div class="wrap-button-slide static-mobile mt-5 flex justify-center gap-3">
                         <button
                             class="btn btn-slide-circ btn-prev w-10 h-10 rounded-full border border-gray-200 flex-center hover:bg-primary hover:text-white transition-all">
@@ -118,7 +112,6 @@ $related_news = get_field('related_news');
                     </div>
                 </div>
                 <?php endif; 
-            // Reset không cần thiết với get_posts, nhưng tốt nhất vẫn nên clear nếu có query phức tạp trước đó
             ?>
             </div>
         </div>

@@ -37,26 +37,8 @@
                 <div class="header-action flex items-center gap-x-6 lg:gap-x-9">
                     <div class="header-language">
                         <!-- <?= do_shortcode('[language]') ?> -->
-                        <div class="header-language">
-                            <div class="header-language-active">
-                                <ul>
-                                    <li class="wpml-ls-current-language"><a href=""> <span
-                                                class="wpml-ls-native">VN</span></a></li>
-                                    <ul>
-                                        <li> <a href=""> <span>EN</span></a></li>
-                                    </ul>
-                                </ul>
-                            </div>
-                            <div class="header-language-list">
-                                <ul>
-                                    <li class="wpml-ls-current-language"><a href=""> <span
-                                                class="wpml-ls-native">VN</span></a></li>
-                                    <ul>
-                                        <li> <a href=""> <span>EN</span></a></li>
-                                    </ul>
-                                </ul>
-                            </div>
-                        </div>
+                        <?php echo do_shortcode('[custom_wpml_switcher]'); ?>
+
                     </div>
                     <div class="header-search text-2xl text-primary-2 cursor-pointer"><i
                             class="fa-light fa-magnifying-glass"></i></div>

@@ -2,6 +2,9 @@
 Template name: Page - Home
 */ ?>
 <?= get_header() ?>
+<h1 class="hidden">
+    <?php echo get_bloginfo('name') ?>
+</h1>
 
 <?php
 if (have_rows('home_sections')) :

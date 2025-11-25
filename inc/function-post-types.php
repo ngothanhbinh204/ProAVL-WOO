@@ -82,6 +82,31 @@ function create_custom_post_types() {
     );
     register_taxonomy('solution_category', array('solution'), $solution_cat_args);
 
+    // --- 5. Đăng ký Taxonomy: Product Brand ---
+    
+    $brand_labels = array(
+        'name'              => 'Thương hiệu',
+        'singular_name'     => 'Thương hiệu',
+        'search_items'      => 'Tìm kiếm Thương hiệu',
+        'all_items'         => 'Tất cả Thương hiệu',
+        'parent_item'       => 'Thương hiệu cha',
+        'parent_item_colon' => 'Thương hiệu cha:',
+        'edit_item'         => 'Chỉnh sửa Thương hiệu',
+        'update_item'       => 'Cập nhật Thương hiệu',
+        'add_new_item'      => 'Thêm Thương hiệu mới',
+        'new_item_name'     => 'Tên Thương hiệu mới',
+        'menu_name'         => 'Thương hiệu',
+    );
+    $brand_args = array(
+        'hierarchical'      => true, 
+        'labels'            => $brand_labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'brand'),
+    );
+    register_taxonomy('product_brand', array('product'), $brand_args);
+
 }
 add_action('init', 'create_custom_post_types');
 

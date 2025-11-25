@@ -7,7 +7,7 @@ $gallery = get_sub_field('gallery');
     <div class="container">
         <div class="general-introduction">
             <div class="general-introduction-header">
-                <h2 class="header-introduction-title heading-1 text-center"><?= $title ?></h2>
+                <h1 class="header-introduction-title heading-1 text-center"><?= $title ?></h1>
                 <div class="header-introduction-content mt-5 text-body-1 text-center flex flex-col gap-y-6">
                     <?= $content ?>
                 </div>

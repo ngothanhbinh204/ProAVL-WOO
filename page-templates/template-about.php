@@ -2,6 +2,7 @@
 Template name: Page - About
 */ ?>
 <?= get_header() ?>
+
 <?php get_template_part('modules/common/banner') ?>
 <?php get_template_part('modules/common/breadcrumb')?>
 <?php

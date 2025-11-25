@@ -16,6 +16,29 @@
 .search-custom {
     display: contents;
 }
+.header-language-active a.has-dropdown::after {
+    display: inline-block; 
+}
+.header-language-active a::after {
+    display: none; 
+}
+.admin-bar header.header {
+    position: fixed; 
+    top: 32px !important; 
+    width: 100%; 
+}
+.admin-bar .menu-mobile {
+    top: 32px !important; 
+}
+.global-breadcrumb p span.separator {
+    font-size: clamp(14px,.72917rem,.72917rem) !important;
+}
+@media screen and (max-width: 782px) {
+    .admin-bar header.header,
+    .admin-bar .menu-mobile {
+        top: 46px !important; 
+    }
+}
 @media screen and (min-width: 1024px) {
     .logo-brands {
     height: 80px;
