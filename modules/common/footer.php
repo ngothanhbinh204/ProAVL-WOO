@@ -142,12 +142,10 @@
     <div class="container">
         <div class="wrap-form-search-product">
             <div class="productsearchbox">
-                <!-- <input type="text" placeholder="Bộ ghế sofa 2022" />
-                <button></button> -->
                 <form class="form-search search-custom" role="search" method="get"
                     action="<?php echo home_url('/'); ?>">
-                    <input type="search" name="s" class="searchinput" placeholder="Bộ ghế sofa 2022"
-                        autocomplete="off" />
+                    <input type="search" name="s" class="searchinput"
+                        placeholder="<?php esc_attr_e('Tìm kiếm...', 'canhcamtheme') ?>" autocomplete="off" />
 
                     <button type="submit" class="searchbutton">
                     </button>

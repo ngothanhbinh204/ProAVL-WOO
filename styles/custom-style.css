@@ -3,7 +3,7 @@
     height: 60px;
     top: 20px;
     right: 20px;
-    z-index: 10;
+    z-index: 5;
 }
 .logo-brands img{
     height: 100%;
@@ -32,6 +32,14 @@
 }
 .global-breadcrumb p span.separator {
     font-size: clamp(14px,.72917rem,.72917rem) !important;
+}
+header .header-child .header-menu>ul>li.current-menu-item>a,
+header .header-child .header-menu>ul>li.current_page_item>a,
+header .header-child .header-menu>ul>li.current-menu-ancestor>a{
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    color: rgb(176 0 31 / var(--tw-text-opacity));
 }
 @media screen and (max-width: 782px) {
     .admin-bar header.header,

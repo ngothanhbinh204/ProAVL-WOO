@@ -925,32 +925,30 @@ echo apply_filters('the_content', '');
     * @param string $html The HTML content of the form.
     * @return string The modified HTML content.
     */
-    function cf7_modify_first_select_option($html)
-    {
+    function cf7_modify_first_select_option($html) {
     $html = preg_replace_callback(
-    '/<select\b[^>]*>(.*?)<\ /select>/s',
-            function ($matches) {
-            $select_block = $matches[0];
-            $modified_block = preg_replace(
-            '/(<option\s+value="")(>)/',
-                '$1 selected hidden disabled$2', // Correctly inserts attributes inside the tag
-                $select_block,
-                1
-                );
+    '#<select\b[^>]*>(.*?)</select>#s',
+function ($matches) {
+$select_block = $matches[0];
+$modified_block = preg_replace(
+'/^(<option\s+value="")(>)/',
+    '$1 selected hidden disabled$2',
+    $select_block,
+    1
+    );
 
-                return $modified_block;
-                },
-                $html
-                );
+    return $modified_block;
+    },
+    $html
+    );
 
-                return $html;
-                }
+    return $html;
+    }
 
-                add_filter('wpcf7_form_elements', 'cf7_modify_first_select_option');
+    add_filter('wpcf7_form_elements', 'cf7_modify_first_select_option');
+    ?>
 
-                ?>
-
-                <?php
+    <?php
 function custom_wpml_language_switcher_markup() {
     $languages = icl_get_languages('skip_missing=1');
     
