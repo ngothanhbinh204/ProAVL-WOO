@@ -8,7 +8,7 @@ $related_news = get_field('related_news');
 ?>
 
 <section class="section-bg bg-utility-gray-50">
-    <!-- <div class="space-header pt-[var(--header-height)]"></div> -->
+    <div class="space-header pt-[var(--header-height)]"></div>
     <?php get_template_part('modules/common/breadcrumb') ?>
 
     <!-- header-content -->

@@ -10,6 +10,7 @@ $form_shortcode  = get_field('contact_form_shortcode');
 $social_heading  = get_field('contact_social_heading'); 
 $social_items    = get_field('contact_social_items'); 
 ?>
+<div class="space-header pt-[var(--header-height)]"></div>
 
 <?php get_template_part('modules/common/breadcrumb') ?>
 

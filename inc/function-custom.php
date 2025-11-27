@@ -823,6 +823,34 @@ add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs, $class) {
 		}
 	}
 
+    // Add logic for Service
+    if (is_singular('service')) {
+        $service_link = get_page_link_by_template('page-templates/template-service.php');
+        if ($service_link) {
+             $service_crumb = [
+                __('Services', 'canhcamtheme'),
+                $service_link
+            ];
+            if (count($crumbs) >= 1) {
+                array_splice($crumbs, 1, 0, [$service_crumb]);
+            }
+        }
+    }
+
+    // Add logic for Solution
+    if (is_singular('solution')) {
+        $solution_link = get_page_link_by_template('page-templates/template-solution.php');
+        if ($solution_link) {
+             $solution_crumb = [
+                __('Solutions', 'canhcamtheme'),
+                $solution_link
+            ];
+            if (count($crumbs) >= 1) {
+                array_splice($crumbs, 1, 0, [$solution_crumb]);
+            }
+        }
+    }
+
 	return $crumbs;
 }, 10, 2);
 
