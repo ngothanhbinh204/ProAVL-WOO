@@ -194,7 +194,7 @@ function add_theme_config_options()
 								'label' => 'Content',
 								'name' => 'content',
 								'type' => 'wysiwyg',
-								'tabs' => 'visual',
+								'tabs' => 'all',
 								'toolbar' => 'basic',
 								'media_upload' => 0,
 								'delay' => 1,

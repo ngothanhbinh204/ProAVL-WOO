@@ -1,9 +1,8 @@
 <?php
-$title = get_field('training_title'); // Or post title
+$title = get_field('training_title'); 
 $description = get_field('training_desc');
 $images = get_field('training_images');
-$button_text = get_field('training_btn_text');
-$button_link = get_field('training_btn_link');
+$button_link_array = get_field('training_btn_link');
 ?>
 <section class="section-bg gradient-3">
     <?php get_template_part('modules/common/breadcrumb')?>
@@ -15,9 +14,23 @@ $button_link = get_field('training_btn_link');
                     <div class="desc text-body-1 text-white">
                         <?= $description ?>
                     </div>
-                    <?php if ($button_text && $button_link) : ?>
-                    <a class="btn btn-white" href="<?= $button_link ?>"><?= $button_text ?></a>
-                    <?php endif; ?>
+
+                    <?php 
+                    if ($button_link_array) : 
+                        $url = $button_link_array['url'];
+                        $title = $button_link_array['title'];
+                        $target = $button_link_array['target'] ? $button_link_array['target'] : '_self';
+                        
+                        if ($url) :
+                    ?>
+                    <a class="btn btn-white" href="<?= esc_url($url) ?>" target="<?= esc_attr($target) ?>">
+                        <?= esc_html($title) ?>
+                    </a>
+                    <?php 
+                        endif;
+                    endif; 
+                    ?>
+
                 </div>
                 <?php if ($images) : ?>
                 <div class="block-slide grid grid-cols-2 gap-x-5 ">

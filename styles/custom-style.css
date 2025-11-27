@@ -33,6 +33,11 @@
 .global-breadcrumb p span.separator {
     font-size: clamp(14px,.72917rem,.72917rem) !important;
 }
+.title_cus_strong strong {
+    font-weight: 500;
+    --tw-text-opacity: 1;
+    color: rgb(176 0 31 / var(--tw-text-opacity));
+}
 header .header-child .header-menu>ul>li.current-menu-item>a,
 header .header-child .header-menu>ul>li.current_page_item>a,
 header .header-child .header-menu>ul>li.current-menu-ancestor>a{

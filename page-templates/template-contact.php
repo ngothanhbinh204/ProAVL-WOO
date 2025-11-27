@@ -59,11 +59,32 @@ $social_items    = get_field('contact_social_items');
                                     <?php if($phone_2): ?>
                                     <li class="content-item flex items-center gap-x-2.5">
                                         <div class="icon text-base text-primary-3">
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M14.5 6C15.3125 6 16 6.6875 16 7.5V14.5C16 15.3438 15.3125 16 14.5 16H5.5C5.09375 16 4.75 15.875 4.5 15.625C4.21875 15.875 3.875 16 3.5 16H1.5C0.65625 16 0 15.3438 0 14.5V5.5C0 4.6875 0.65625 4 1.5 4H3.5C3.65625 4 3.8125 4.0625 4 4.09375V2C4 0.90625 4.875 0 6 0H12.7812C13.0312 0 13.2812 0.125 13.5 0.3125L14.6875 1.5C14.875 1.6875 15 1.96875 15 2.21875V4.5C15 4.78125 14.75 5 14.5 5C14.2188 5 14 4.78125 14 4.5V2.21875L12.7812 1H6C5.4375 1 5 1.46875 5 2V6.09375C5.15625 6.0625 5.3125 6 5.5 6H14.5ZM4 14.5V5.5C4 5.25 3.75 5 3.5 5H1.5C1.21875 5 1 5.25 1 5.5V14.5C1 14.7812 1.21875 15 1.5 15H3.5C3.75 15 4 14.7812 4 14.5ZM15 14.5V7.5C15 7.25 14.75 7 14.5 7H5.5C5.21875 7 5 7.25 5 7.5V14.5C5 14.7812 5.21875 15 5.5 15H14.5C14.75 15 15 14.7812 15 14.5ZM8.5 8.75C8.90625 8.75 9.25 9.09375 9.25 9.5C9.25 9.9375 8.90625 10.25 8.5 10.25C8.0625 10.25 7.75 9.9375 7.75 9.5C7.75 9.09375 8.0625 8.75 8.5 8.75ZM8.5 11.75C8.90625 11.75 9.25 12.0938 9.25 12.5C9.25 12.9375 8.90625 13.25 8.5 13.25C8.0625 13.25 7.75 12.9375 7.75 12.5C7.75 12.0938 8.0625 11.75 8.5 11.75ZM11.5 8.75C11.9062 8.75 12.25 9.09375 12.25 9.5C12.25 9.9375 11.9062 10.25 11.5 10.25C11.0625 10.25 10.75 9.9375 10.75 9.5C10.75 9.09375 11.0625 8.75 11.5 8.75ZM11.5 11.75C11.9062 11.75 12.25 12.0938 12.25 12.5C12.25 12.9375 11.9062 13.25 11.5 13.25C11.0625 13.25 10.75 12.9375 10.75 12.5C10.75 12.0938 11.0625 11.75 11.5 11.75Z"
-                                                    fill="black" />
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="16"
+                                                height="16" viewBox="0 0 256 256" xml:space="preserve">
+                                                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                                                    transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                                                    <path
+                                                        d="M 75.546 78.738 H 14.455 C 6.484 78.738 0 72.254 0 64.283 V 25.716 c 0 -7.97 6.485 -14.455 14.455 -14.455 h 61.091 c 7.97 0 14.454 6.485 14.454 14.455 v 38.567 C 90 72.254 83.516 78.738 75.546 78.738 z M 14.455 15.488 c -5.64 0 -10.228 4.588 -10.228 10.228 v 38.567 c 0 5.64 4.588 10.229 10.228 10.229 h 61.091 c 5.64 0 10.228 -4.589 10.228 -10.229 V 25.716 c 0 -5.64 -4.588 -10.228 -10.228 -10.228 H 14.455 z"
+                                                        style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(29,29,27); fill-rule: nonzero; opacity: 1;"
+                                                        transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                                    <path
+                                                        d="M 11.044 25.917 C 21.848 36.445 32.652 46.972 43.456 57.5 c 2.014 1.962 5.105 -1.122 3.088 -3.088 C 35.74 43.885 24.936 33.357 14.132 22.83 C 12.118 20.867 9.027 23.952 11.044 25.917 L 11.044 25.917 z"
+                                                        style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(29,29,27); fill-rule: nonzero; opacity: 1;"
+                                                        transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                                    <path
+                                                        d="M 46.544 57.5 c 10.804 -10.527 21.608 -21.055 32.412 -31.582 c 2.016 -1.965 -1.073 -5.051 -3.088 -3.088 C 65.064 33.357 54.26 43.885 43.456 54.412 C 41.44 56.377 44.529 59.463 46.544 57.5 L 46.544 57.5 z"
+                                                        style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(29,29,27); fill-rule: nonzero; opacity: 1;"
+                                                        transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                                    <path
+                                                        d="M 78.837 64.952 c -7.189 -6.818 -14.379 -13.635 -21.568 -20.453 c -2.039 -1.933 -5.132 1.149 -3.088 3.088 c 7.189 6.818 14.379 13.635 21.568 20.453 C 77.788 69.973 80.881 66.89 78.837 64.952 L 78.837 64.952 z"
+                                                        style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(29,29,27); fill-rule: nonzero; opacity: 1;"
+                                                        transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                                    <path
+                                                        d="M 14.446 68.039 c 7.189 -6.818 14.379 -13.635 21.568 -20.453 c 2.043 -1.938 -1.048 -5.022 -3.088 -3.088 c -7.189 6.818 -14.379 13.635 -21.568 20.453 C 9.315 66.889 12.406 69.974 14.446 68.039 L 14.446 68.039 z"
+                                                        style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(29,29,27); fill-rule: nonzero; opacity: 1;"
+                                                        transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                                </g>
                                             </svg>
 
                                         </div>

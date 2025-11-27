@@ -23,7 +23,7 @@ $visions = get_sub_field('visions');
                                     <div class="icon w-30 h-30 mx-auto">
                                         <?= get_image_attrachment($icon) ?>
                                     </div>
-                                    <h3 class="title mt-10 heading-2-regular text-primary-3 uppercase">
+                                    <h3 class="title mt-10 heading-2-regular text-primary-3 uppercase title_cus_strong">
                                         <?= $item_title ?>
                                     </h3>
                                 </div>
